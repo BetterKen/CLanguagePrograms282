@@ -10,7 +10,7 @@
  * 但这个产生的随机数是一个伪随机数 和每次计算机的启动时间有关 多次执行rand值不变
  * 需要使用srand()函数进行重新播种 来使rand函数产生不同的值
  * srand也在stdlib.h里
- * srand使用方法常常和time函数一起使用 srand((unsign)time(NULL))
+ * srand使用方法常常和time函数一起使用 srand((unsign)time(NULL))  循环里面使用srand 不要用time(NULL) 请使用time(NULL)+j
  *
  * 哈希就是是把任意长度的输入（又叫做预映射pre-image）通过散列算法变换成固定长度的输出，该输出就是散列值
  * demo使用的是取余方式的哈希函数
