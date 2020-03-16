@@ -4,13 +4,16 @@
 #include <unistd.h>
 
 int main() {
-    struct timeval t_val;
-    struct tm *t;
-    t_val.tv_sec = 123456789;
+    struct timeval stime;
+    gettimeofday(&stime, NULL);
+    printf("现在的时间秒数是：%ld,毫秒数是：%ld\n现在的时间是:", stime.tv_sec, stime.tv_usec);
+    fflush(stdout);
     system("date");
-    settimeofday(&t_val,NULL); //这个函数只有在root用户下才会起作用
+
+    stime.tv_sec = 123456789;
+    settimeofday(&stime, NULL);
+    printf("现在的时间秒数是：%ld,毫秒数是：%ld\n现在的时间是:", stime.tv_sec, stime.tv_usec);//这个函数只有在root用户下才会起作用
+    fflush(stdout);
     system("date");
-//    t = localtime((time_t *)&t_val.tv_sec);
-//    printf("%s",asctime(t));
     return 0;
 }
